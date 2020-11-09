@@ -1,0 +1,53 @@
+plugins {
+    id 'groovy'
+}
+
+group 'com.51ykb'
+version '1.0-SNAPSHOT'
+
+sourceSets {
+    main {
+        groovy {
+            srcDir 'src'
+            srcDir 'vars'
+        }
+        resources {
+            srcDir 'resources'
+        }
+    }
+    test {
+        groovy {
+            srcDir 'test'
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+targetCompatibility = 1.8
+sourceCompatibility = 1.8
+
+configurations {
+    ivy
+}
+
+tasks.withType(GroovyCompile) {
+    groovyClasspath += configurations.ivy
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:2.5.7'
+    implementation 'com.cloudbees:groovy-cps:1.29'
+    def ivyDep = 'org.apache.ivy:ivy:2.4.0'
+    ivy ivyDep
+    implementation ivyDep
+
+    testImplementation 'com.lesfurets:jenkins-pipeline-unit:1.1'
+    testImplementation 'junit:junit:4.12'
+    // spock
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+    testImplementation 'org.objenesis:objenesis:3.0.1'
+    testImplementation 'cglib:cglib-nodep:3.2.12'
+}
