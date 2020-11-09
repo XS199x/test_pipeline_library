@@ -1,5 +1,5 @@
 package com.ykb
 
 def getNameList() {
-    echo "test123456"
+    println "test1234"
 }
