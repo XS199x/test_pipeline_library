@@ -1,0 +1,64 @@
+{
+  "servers": {
+    "dockerBuildServer": {
+      "dev": {
+        "name": "ykbDevDockerBuildServer",
+        "credentialsId": "ykbDevDockerBuildServer",
+        "host": "192.168.48.97",
+        "port": 22,
+        "allowAnyHosts": "true"
+      },
+      "utest": {
+        "name": "ykbUtestDockerBuildServer",
+        "credentialsId": "ykbUtestDockerBuildServer",
+        "host": "120.132.103.238",
+        "port": 30001,
+        "allowAnyHosts": "true"
+      },
+      "release": {
+        "name": "ykbReleaseDockerBuildServer",
+        "credentialsId": "ykbReleaseDockerBuildServer",
+        "host": "172.26.170.138",
+        "port": 8922,
+        "allowAnyHosts": "true"
+      }
+    },
+    "dockerRegister": {
+      "dev": {
+        "credentialsId": "devImagesRegistryPhrase",
+        "dockerRegisterUrl": "registry.cn-shanghai.aliyuncs.com/ykbcloud",
+        "dockerRegisterPort": "0"
+      },
+      "utest": {
+        "credentialsId": "utestImagesRegistryPhrase",
+        "dockerRegisterUrl": "uhub.service.ucloud.cn/ykb_images",
+        "dockerRegisterPort": "0"
+      },
+      "release": {
+        "credentialsId": "releaseImagesRegistryPhrase",
+        "dockerRegisterUrl": "uhub.service.ucloud.cn/ykb_release",
+        "dockerRegisterPort": "0"
+      }
+    },
+    "k8s": {
+      "dev": {
+        "k8sPortIp": "192.168.48.92",
+        "k8sApiUrl": "http://192.168.48.83/r/projects/1a7/kubernetes:6443",
+        "credentialsId": "devK8sApiKey"
+      },
+      "utest": {
+        "k8sPortIp": "10.25.86.36",
+        "k8sApiUrl": "http://k8s.apis.51ykb.com",
+        "credentialsId": "utestK8sApiKey"
+      },
+      "release": {
+        "k8sPortIp": "10.10.145.13",
+        "k8sApiUrl": "http://139.196.191.239:8080/r/projects/1a686/kubernetes:6443",
+        "credentialsId": "releaseK8sApiKey"
+      }
+    },
+    "artifactory": {
+      "url": "http://192.168.48.96:8081/artifactory/ykb-zip-dev-sh"
+    }
+  }
+}
